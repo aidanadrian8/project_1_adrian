@@ -1,4 +1,4 @@
-<div class="container">
+
 <%= month_calendar(events: @dog_shows) do |date, dog_shows| %>
   <%= date.day %>
   <% dog_shows.each do |dog_show| %>
@@ -7,4 +7,3 @@
     </div>
   <% end %>
 <% end %>
-</div>
