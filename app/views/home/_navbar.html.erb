@@ -1,0 +1,117 @@
+<script>
+  $(document).ready(function(){
+    var full_path = location.href.split("#")[0];
+    $("#nav a").each(function(){
+        var $this = $(this);
+        if($this.prop("href").split("#")[0] == full_path) {
+            $this.addClass("active");
+        }
+    });
+``});
+  function openNav() {
+    if(window.localStorage.getItem('sidebar-open') == "true"){
+    document.getElementById("application-navbar").style.width = "280px";
+    document.getElementById("application-navbar").style.textAlign = "left";
+    //document.getElementById("container-fluid").style.marginLeft = "280px";
+    document.getElementById("sidebar-title").removeAttribute("hidden");
+    document.getElementById("spacer").setAttribute("hidden",true);
+    //document.getElementById("sidebar-brand").style.max_height = "";
+    
+    document.getElementById("sidebar-label-home").style.display = "inline";
+    document.getElementById("sidebar-item-home").style.width = "100%";
+    document.getElementById("sidebar-link-home").style.display = "block";
+
+    document.getElementById("sidebar-label-event-schedule").style.display = "inline";
+    document.getElementById("sidebar-item-event-schedule").style.width = "100%";
+    document.getElementById("sidebar-link-event-schedule").style.display = "block";
+
+    document.getElementById("sidebar-label-purchase-tickets").style.display = "inline";
+    document.getElementById("sidebar-item-purchase-tickets").style.width = "100%";
+    document.getElementById("sidebar-link-purchase-tickets").style.display = "block";
+
+    document.getElementById("sidebar-label-view-dogs").style.display = "inline";
+    document.getElementById("sidebar-item-view-dogs").style.width = "100%";
+    document.getElementById("sidebar-link-view-dogs").style.display = "block";
+    
+    document.getElementById("open-nav").style.transform = "rotate(0deg)";
+    window.localStorage.setItem('sidebar-open', true);
+    }
+    else{
+      document.getElementById("application-navbar").style.width = "50px";
+      document.getElementById("application-navbar").style.textAlign = "center";
+      //document.getElementById("container-fluid").style.marginLeft = "50px";
+      document.getElementById("sidebar-title").setAttribute("hidden",true);
+      document.getElementById("spacer").removeAttribute("hidden");
+
+      document.getElementById("sidebar-label-home").style.display = "none";
+      document.getElementById("sidebar-item-home").style.width = "100%";
+      document.getElementById("sidebar-link-home").style.display = "inline-block";
+
+      document.getElementById("sidebar-label-event-schedule").style.display = "none";
+      document.getElementById("sidebar-item-event-schedule").style.width = "100%";
+      document.getElementById("sidebar-link-event-schedule").style.display = "inline-block";
+
+      document.getElementById("sidebar-label-purchase-tickets").style.display = "none";
+      document.getElementById("sidebar-item-purchase-tickets").style.width = "100%";
+      document.getElementById("sidebar-link-purchase-tickets").style.display = "inline-block";
+
+      document.getElementById("sidebar-label-view-dogs").style.display = "none";
+      document.getElementById("sidebar-item-view-dogs").style.width = "100%";
+      document.getElementById("sidebar-link-view-dogs").style.display = "inline-block";
+
+      document.getElementById("open-nav").style.transform = "rotate(180deg)";
+      window.localStorage.setItem('sidebar-open', "false");
+    }
+  }
+</script>
+
+
+<div class="nav flex-column nav-tabs text-white bg-dark application-navbar-width" id="application-navbar">
+    <div class="sidebar-brand">
+    <a href="/" class="d-flex align-items-center text-white text-decoration-none sidebar-title-link">
+      <i class="fa-solid fa-bone"></i>
+      <span class="fs-6 sidebar-title-label" id="sidebar-title">The Dawg Show</span>
+    </a>
+    <a href="javascript:void(0)" class="d-flex align-items-center text-white text-decoration-none sidebar-toggle" id="open-nav" onclick="openNav()"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    <br id="spacer" hidden="true">
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto" id="nav">
+      <li class="nav-item" id="sidebar-item-home">
+        <a href="/" class="nav-link text-white" id="sidebar-link-home" aria-current="page">
+          <i class="fa-solid fa-house sidebar-icon"></i>
+          <span class="fs-12" id="sidebar-label-home">Home</span>
+        </a>
+      </li>
+      <li class="nav-item" id="sidebar-item-event-schedule">
+        <a href="/event_schedule" class="nav-link text-white" id="sidebar-link-event-schedule">
+          <i class="fa-solid fa-calendar-days sidebar-icon"></i>
+          <span class="fs-12" id="sidebar-label-event-schedule">Event Schedule</span>
+        </a>
+      </li>
+      <li class="nav-item" id="sidebar-item-purchase-tickets">
+        <a href="/purchase_tickets" class="nav-link text-white" id="sidebar-link-purchase-tickets">
+          <i class="fa-solid fa-ticket"></i>
+          <span class="fs-12" id="sidebar-label-purchase-tickets">Purchase Tickets</span>
+        </a>
+      </li>
+      <li class="nav-item" id="sidebar-item-view-dogs">
+        <a href="/view_dogs" class="nav-link text-white" id="sidebar-link-view-dogs">
+          <i class="fa-solid fa-paw"></i>
+          <span class="fs-12" id="sidebar-label-view-dogs">View Dogs/Trainers</span>
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropup">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-user"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div>

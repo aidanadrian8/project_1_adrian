@@ -1,0 +1,2 @@
+class DogShow < ApplicationRecord
+end
