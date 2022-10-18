@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @account %>
+
+<div>
+  <%= link_to "Edit this dog show", edit_account_path(@account) %> |
+  <%= link_to "Back to dog shows", accounts_path %>
+
+  <%= button_to "Destroy this dog show", @account, method: :delete %>
+</div>

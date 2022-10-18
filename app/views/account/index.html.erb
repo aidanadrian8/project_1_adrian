@@ -1,0 +1,12 @@
+<div id="users">
+  <% @users.each do |account| %>
+    
+    <p>Email: <%= account.email %></p>
+    <p>First Name: <%= account.firstName %></p>
+    <p>Last Name: <%= account.lastName %></p>
+    <p>Description: <%= account.description %></p>
+    <p>
+      <%= link_to "Show this Trainer",  edit_account_path(account) %>
+    </p>
+  <% end %>
+</div>

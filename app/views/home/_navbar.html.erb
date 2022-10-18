@@ -17,8 +17,20 @@
           <a class="nav-link" href="/purchase_tickets"><i class="fa-solid fa-ticket"></i> Purchase Tickets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/trainer_bios"><i class="fa-solid fa-paw"></i> Dog/Trainer Bios</a>
+          <a class="nav-link" href="/account"><i class="fa-solid fa-paw"></i> Dog/Trainer Bios</a>
         </li>
+        <% if current_user %>
+        <% if current_user.role == "event_organizer"%>
+        <li class="nav-item">
+          <a class="nav-link" href="/dog_shows"><i class="fa-solid fa-paw"></i> Add Shows</a>
+        </li>
+        <% end %>
+        <% if current_user.role == "trainer" %>
+        <li class="nav-item">
+          <a class="nav-link" href="/update_bio"><i class="fa-solid fa-paw"></i> Add Shows</a>
+        </li>
+        <% end %>
+        <% end %>
         </ul>
         <ul class="navbar-nav ms-auto">
          <li class="nav-item dropdown">
@@ -26,14 +38,13 @@
             <i class="fa-solid fa-gear"></i>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <% if event_organizer_signed_in?%>
-            <li><%= link_to 'My Account', edit_event_organizer_path(current_event_organizer), class:"dropdown-item" %></li>
-            <li><%= link_to 'Sign Out', destroy_event_organizer_session_path, data: { "turbo-method": :delete }, class:"dropdown-item"%></li>
+            <% if user_signed_in? %>
+            <li><%= link_to 'My Account', edit_user_registration_path, class:"dropdown-item" %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, data: { "turbo-method": :delete }, class:"dropdown-item"%></li>
             <% else %>
-            <li><%= link_to 'Sign In', new_event_organizer_session_path, class:"dropdown-item"%></li>
+            <li><%= link_to 'Sign In', new_user_session_path, class:"dropdown-item"%></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path, class:"dropdown-item"%></li>
             <% end %>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'My Account', edit_event_organizer_registration_path, class:"dropdown-item" %></li>
           </ul>
         </li>
 
