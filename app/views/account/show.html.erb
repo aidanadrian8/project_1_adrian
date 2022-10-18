@@ -1,10 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @account %>
+<p>
+    <strong>First Name apples:</strong>
+    <%= @user.firstName %>
+  </p>
+
+  <p>
+    <strong>Last Name:</strong>
+    <%= @user.lastName %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @user.description %>
+  </p>
+
 
 <div>
-  <%= link_to "Edit this dog show", edit_account_path(@account) %> |
-  <%= link_to "Back to dog shows", accounts_path %>
-
-  <%= button_to "Destroy this dog show", @account, method: :delete %>
+  
+  <%= link_to "Back to Full user list", '/account' %>
+  <% if current_user && current_user.role == "event_organizer" %>
+  <%= link_to "Edit this User", edit_account_path(@user) %>
+  <%= button_to "Destroy this User", @account, method: :delete %>
+  <% end %>
 </div>

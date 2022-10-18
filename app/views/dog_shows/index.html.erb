@@ -2,13 +2,32 @@
 
 <h1>Dog shows</h1>
 
+
 <div id="dog_shows">
-  <% @dog_shows.each do |dog_show| %>
-    <%= render dog_show %>
-    <p>
-      <%= link_to "Show this dog show", dog_show %>
-    </p>
-  <% end %>
+  <table class="table table-striped table-hover" >
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Attendees</th> <!-- This needs to be worked with ticket implementation -->
+          <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dog_shows.each do |dog_show|%>
+        <tr>
+          <td><%= dog_show.name %></td>
+          <td><%= dog_show.name%></td>
+          <td><%= dog_show.start_time %></td>
+          <td><%= dog_show.end_time %></td>
+          <td><%= dog_show.name%></td>
+          <td><%= link_to "Show this dog show", dog_show %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= link_to "New dog show", new_dog_show_path %>

@@ -1,5 +1,6 @@
 class AccountController < ApplicationController
     before_action :set_user, only: %i[ show edit update destroy ]
+    
 
     # GET /users or /users.json
     def index
@@ -8,6 +9,10 @@ class AccountController < ApplicationController
   
     # GET /users/1 or /users/1.json
     def show
+      puts params
+      #account = User.find[params[:id]]
+      account = @user
+
     end
   
     # GET /users/1/edit
@@ -47,6 +52,6 @@ class AccountController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def user_params
-        params.require(:user).permit(:firstName, :last_name, :description)
+        params.require(:user).permit(:firstName, :last_name, :description, :id)
       end
 end
