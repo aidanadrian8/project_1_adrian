@@ -1,4 +1,4 @@
-class Attendee < user
-    belongs_to :user, class_name: "user", foreign_key: "id"
-    belongs_to :dog_show
+class Attendee < ApplicationRecord
+  belongs_to :user
+  belongs_to :dog_show
 end

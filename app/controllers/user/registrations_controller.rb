@@ -39,6 +39,10 @@ class User::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def tickets
+    @tickets = Ticket.all
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

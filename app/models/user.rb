@@ -8,5 +8,5 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :attendee
   end
-  has_many :tickets
+  has_many :attendees
 end

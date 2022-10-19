@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :dog_shows
   resources :account
   resources :ticket
+  resources :attendees
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :event_schedule

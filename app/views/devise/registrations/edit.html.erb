@@ -46,6 +46,7 @@
     <%= f.text_field :description %>
   </div>
 
+
   <div class="field">
     <%= f.label :role, "Attendee"%>
     <%= f.radio_button :role, "attendee", checked:(resource.role == "attendee") %>
@@ -59,6 +60,15 @@
     <%= f.submit "Update" , data: {turbo: false}%>
   </div>
 <% end %>
+
+<div>
+    <% current_user.attendees.each do |attendee| %>
+    <%= attendee.dog_show.name %>
+    <%= attendee.dog_show.start_time %>
+    <%= attendee.dog_show.location %>
+    
+    <% end %>
+  </div>
 
 <h3>Cancel my account</h3>
 

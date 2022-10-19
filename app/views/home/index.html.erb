@@ -1,3 +1,20 @@
  <%= image_tag "dog-show-banner.jpeg", class: "hero-image" %>
  <h1 class="hero-title text-white">The Dirty Dawg Show </h1>
+ <div>
+    <p>
+        We are proud to present to you the dirty dawg show. A fantastic assortment of all dogs from all places. Join now to become a member and
+        recieve exclusive access to future and current events registration, tickets for your pleasure, and to stay up do date with the dogs and their trainers.
+    </p>
+ </div>
+ 
 
+<div class="col-lg">
+<%= week_calendar(partial: 'simple_calendar/month_calendar', events: @dog_shows) do |date, dog_shows| %>
+  <%= date.day %>
+  <% dog_shows.each do |dog_show| %>
+    <div>
+      <%= link_to "#{dog_show.name.truncate(10)}", "/dog_shows/#{dog_show.id}" %>
+    </div>
+  <% end %>
+<% end %>
+</div>

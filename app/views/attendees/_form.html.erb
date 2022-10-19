@@ -1,0 +1,7 @@
+<%= form_for @attendee do |f| %>
+<%= f.text_field :user_id, value: current_user.id, hidden: true %>
+<%= f.text_field :dog_show_id, value: @dog_show_id, hidden: true %>
+<%= f.submit "Purchase Ticket " %>
+
+<% end %>
+
