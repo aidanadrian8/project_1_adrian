@@ -1,5 +1,5 @@
 
-<%= month_calendar(events: @dog_shows) do |date, dog_shows| %>
+<%= calendar(partial: 'simple_calendar/month_calendar', events: @dog_shows, date_range: '31') do |date, dog_shows| %>
   <%= date.day %>
   <% dog_shows.each do |dog_show| %>
     <div>
