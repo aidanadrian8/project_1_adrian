@@ -16,6 +16,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    puts self.tickets
     super
   end
 

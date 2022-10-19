@@ -12,7 +12,6 @@ class AccountController < ApplicationController
       puts params
       #account = User.find[params[:id]]
       account = @user
-
     end
   
     # GET /users/1/edit

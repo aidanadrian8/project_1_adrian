@@ -6,6 +6,7 @@ class User < ApplicationRecord
   enum role: [:attendee, :trainer, :event_organizer]
   after_initialize :set_default_role, :if => :new_record?
   def set_default_role
-    self.role ||= :user
+    self.role ||= :attendee
   end
+  has_many :tickets
 end
