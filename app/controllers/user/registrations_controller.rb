@@ -16,7 +16,6 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    puts self.tickets
     super
   end
 
@@ -37,10 +36,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   # removing all OAuth session data.
   def cancel
     super
-  end
-
-  def tickets
-    @tickets = Ticket.all
   end
 
   # protected

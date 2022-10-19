@@ -12,7 +12,7 @@
     </thead>
     <tbody>
       <% @dog_shows.each do |dog_show|%>
-        <% if dog_show.end_time > Date.today  || dog_show.number_of_seats == 0 %> <!-- don't show shows that have already ended or have 0 avaliable seats-->
+        <% if dog_show.end_time > Date.today  || dog_show.number_of_seats == 0 %> <!-- don't render shows that have already ended or have 0 avaliable seats-->
             <tr>
                 <td><%= dog_show.name %></td>
                 <td><%= dog_show.location%></td>
