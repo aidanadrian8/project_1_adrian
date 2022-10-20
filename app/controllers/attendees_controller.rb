@@ -12,6 +12,7 @@ class AttendeesController < ApplicationController
   def new
     @attendee = Attendee.new
     @dog_show_id = params[:dog_show_id]
+    @dog_show = DogShow.find(@dog_show_id)
   end
 
   # GET /attendees/1/edit
@@ -27,7 +28,7 @@ class AttendeesController < ApplicationController
     respond_to do |format|
       if @attendee.save
 
-        format.html { redirect_back(fallback_location: root_path, notice: "Ticket was succesfully purchased!" )}
+        format.html { redirect_back(fallback_location: root_path, notice: "Ticket was succesfully purchased!" )} #tickets are handled through attendees, there is no actual ticket model
         format.json { render :show, status: :created, location: @attendee }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +41,7 @@ class AttendeesController < ApplicationController
   def update
     respond_to do |format|
       if @attendee.update(attendee_params)
-        format.html { redirect_back(fallback_location: root_path, notice: "Attendee was successfully updated." )}
+        format.html { redirect_back(fallback_location: root_path, notice: "Ticket was successfully updated." )}
         format.json { render :show, status: :ok, location: @attendee }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +55,7 @@ class AttendeesController < ApplicationController
     @attendee.destroy
 
     respond_to do |format|
-      format.html { redirect_to attendees_url, notice: "Attendee was successfully destroyed." }
+      format.html { redirect_to attendees_url, notice: "Ticket was successfully destroyed." }
       format.json { head :no_content }
     end
   end

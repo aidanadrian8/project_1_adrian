@@ -6,8 +6,23 @@
         recieve exclusive access to future and current events registration, tickets for your pleasure, and to stay up do date with the dogs and their trainers.
     </p>
  </div>
- 
+ <hr>
+<div>
+    <%= image_tag "winning_dog.jpg", class: "winning-dog" %>
+</div>
+    <h4>Shiloh The Husky Wonder</h4>
+    <br/>
 
+    <p class="home-page-text">
+        Our most recent and longest running winner is the lovely husky here named Shiloh. A perfect score from the judges is not unusual. Shiloh excels
+        in her routines and shows the upmost cordial behavior. The trainer Mary has been working tirelessly with Shiloh and their hard work
+        continues to pay off. They have been working together since Shiloh was born. Shiloh is a very special dog and would love for you to come and
+        meet her!
+    </p>
+
+
+ <br class="clear"/>
+ <hr>
 <div class="col-lg">
 <%= week_calendar(partial: 'simple_calendar/month_calendar', events: @dog_shows) do |date, dog_shows| %>
   <%= date.day %>

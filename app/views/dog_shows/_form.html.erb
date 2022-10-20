@@ -13,29 +13,37 @@
 
   <div>
     <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+  <div>
+    <%= form.label :about, style: "display: block" %>
+    <%= form.text_field :about, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :start_time, style: "display: block" %>
-    <%= form.datetime_field :start_time %>
+    <%= form.datetime_field :start_time, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :end_time, style: "display: block" %>
-    <%= form.datetime_field :end_time %>
+    <%= form.datetime_field :end_time, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, class:"form-control" %>
   </div>
   <div>
     <%= form.label :number_of_seats, style: "display: block" %>
-    <%= form.number_field :number_of_seats %>
+    <%= form.number_field :number_of_seats, class:"form-control" %>
+  </div>
+  <div>
+    <% price = rand(20..50)%>
+    <%= form.number_field :price , hidden: true, value: price%>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Create", class:"btn btn-outline-success mt-2" %>
   </div>
 <% end %>

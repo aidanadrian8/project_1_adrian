@@ -1,10 +1,15 @@
+<% if current_user.role == "event_organizer"%>
+<%= link_to "Back", '/dog_shows', class:"btn btn-outline-dark float-start mt-3" %>
+<% else %>
+<%= link_to "Back", '/event_schedule', class:"btn btn-outline-dark float-start mt-3" %>
+<% end %>
 <%= render @dog_show %>
-
+<br>
 <div>
   <% if current_user && current_user.role == "event_organizer" %>
-  <%= link_to "Edit this dog show", edit_dog_show_path(@dog_show) %> |
-  <%= link_to "Back to Event Schedule", '/event_schedule' %>
-
-  <%= button_to "Destroy this dog show", @dog_show, method: :delete %>
+  <%= link_to "Edit", edit_dog_show_path(@dog_show), class:"btn btn-outline-primary float-start" %>
+  <%= button_to "Destroy this dog show", @dog_show, method: :delete, class:"btn btn-outline-danger float-end" %>
   <% end %>
+  <br>
+  <br>
 </div>

@@ -1,26 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="float-start"><%= @user.firstName %> <%= @user.lastName %></h1>
+<%= link_to "Back to Full user list", '/account', class:"btn btn-outline-dark float-end mt-1" %>
+<hr class="clear">
 
-<p>
-    <strong>First Name apples:</strong>
-    <%= @user.firstName %>
-  </p>
-
-  <p>
-    <strong>Last Name:</strong>
-    <%= @user.lastName %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @user.description %>
-  </p>
-
-
-<div>
+    <div>
+    <%= image_tag "default_dog_trainer.jpeg", class:"img-fluid img-thumbnail winning-dog float-start me-3"%>
+    </div>
+    <div>
+    <h3 class="">About <%= @user.firstName %> <%= @user.lastName %>:</h3>
+    <br>
+    <p class=""><%= @user.description %></p>
+    </div>
+    <hr class="clear">
+    
   
-  <%= link_to "Back to Full user list", '/account' %>
+
+
+<div class="mb-2">
   <% if current_user && current_user.role == "event_organizer" %>
-  <%= link_to "Edit this User", edit_account_path(@user) %>
-  <%= button_to "Destroy this User", @account, method: :delete %>
+  <%= link_to "Edit this User", edit_account_path(@user), class:"btn btn-outline-primary float-start pb-2"  %>
+  <%= button_to "Destroy this User", @account, method: :delete, class:"btn btn-outline-danger float-end pb-2"  %>
   <% end %>
+  <br>
+
 </div>

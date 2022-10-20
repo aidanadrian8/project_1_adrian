@@ -1,3 +1,10 @@
+
+<% if current_user && current_user.role == "event_organizer" %>
+<h1>View all accounts</h1>
+<% else %>
+<h1>View all trainers</h1>
+<%end%>
+<hr>
 <div id="users">
     <table class="table table-dark table-striped table-hover">
         <thead>
@@ -18,9 +25,9 @@
                             <td><%= account.lastName %></td>
                             <td><%= account.email %></td>
                             <td><%= account.role %></td>
-                            <td><%= link_to "Show", {:controller => "account", :action => "show", :id => account.id } %></td>
+                            <td><%= link_to "Show", {:controller => "account", :action => "show", :id => account.id }, class:"btn btn-outline-primary btn-sm" %></td>
                             <% if current_user.role == "event_organizer" %>
-                                <td><%= link_to "Edit",  edit_account_path(account) %></td>
+                                <td><%= link_to "Edit",  edit_account_path(account), class:"btn btn-outline-primary btn-sm" %></td>
                             <% end %>
                         </tr>
                     <% end %>
@@ -31,7 +38,7 @@
                         <td><%= account.lastName %></td>
                         <td><%= account.email %></td>
                         <td><%= account.role %></td>
-                        <td><%= link_to "Show", {:controller => "account", :action => "show", :id => account.id } %></td>
+                        <td><%= link_to "Show", {:controller => "account", :action => "show", :id => account.id }, class:"btn btn-outline-primary btn-sm" %></td>
                         <% end %>
                     </tr>
                 <% end %>

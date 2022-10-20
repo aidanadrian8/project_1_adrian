@@ -1,6 +1,10 @@
-<p style="color: green"><%= notice %></p>
-
+<div class="float-start">
 <h1>Dog shows</h1>
+</div>
+<div>
+  <%= link_to "New dog show", new_dog_show_path, class:"btn btn-outline-success btn-sm float-end mt-2" %>
+</div>
+<hr class="clear">
 
 
 <div id="dog_shows">
@@ -11,7 +15,8 @@
           <th>Location</th>
           <th>Start Date</th>
           <th>End Date</th>
-          <th>Available Seating</th> 
+          <th>Available</th>
+          <th>Price</th> 
           <th colspan="3">Actions</th>
       </tr>
     </thead>
@@ -23,11 +28,12 @@
           <td><%= dog_show.start_time.strftime('%m/%d/%Y') %></td>
           <td><%= dog_show.end_time.strftime('%m/%d/%Y') %></td>
           <td><%= dog_show.number_of_seats %></td>
-          <td><%= link_to "Show this dog show", dog_show %></td>
+          <td><%= dog_show.price %></td>
+          <td><%= link_to "Show", dog_show, class:"btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to "Edit", edit_dog_show_path(dog_show), class:"btn btn-outline-primary btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
 
-<%= link_to "New dog show", new_dog_show_path %>

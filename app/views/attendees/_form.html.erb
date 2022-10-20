@@ -1,7 +1,12 @@
+<h1>Purchase ticket for: <%= @dog_show.name %></h1>
+<hr>
+<h4>Dates: <%= @dog_show.start_time.strftime("%m/%d/%y")%> - <%= @dog_show.end_time.strftime("%m/%d/%y")%></h4>
+<h4>Price: $<%= @dog_show.price %></h4>
+<p>Disclaimer: No refunds, all sales are final. No reselling of tickets is allowed under fedral statute: 84115</p>
+
 <%= form_for @attendee do |f| %>
 <%= f.text_field :user_id, value: current_user.id, hidden: true %>
 <%= f.text_field :dog_show_id, value: @dog_show_id, hidden: true %>
-<%= f.submit "Purchase Ticket " %>
-
+<%= f.submit "Purchase Ticket ", class:"btn btn-outline-success" %>
 <% end %>
 

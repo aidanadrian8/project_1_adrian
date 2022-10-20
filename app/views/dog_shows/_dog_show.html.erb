@@ -1,17 +1,9 @@
 <div id="<%= dom_id dog_show %>">
-  <p>
-    <strong>Title:</strong>
-    <%= dog_show.name %>
-  </p>
-
-  <p>
-    <strong>Start time:</strong>
-    <%= dog_show.start_time %>
-  </p>
-
-  <p>
-    <strong>End time:</strong>
-    <%= dog_show.end_time %>
-  </p>
+  <h1 class="float-start mt-3 ms-2"><%= dog_show.name %></h1>
+  <h4 class="float-end mt-3"><%= dog_show.start_time.strftime("%m/%d/%y")%>-<%= dog_show.end_time.strftime("%m/%d/%y") %></h4>
+  <hr class="clear">
+  
+  <p><%= dog_show.about %></p>
+  <%= image_tag "default_show_venue.jpg", class:"img-fluid"%>
 
 </div>

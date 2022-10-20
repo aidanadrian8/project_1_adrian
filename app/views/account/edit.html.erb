@@ -1,9 +1,7 @@
-<h1>Editing User</h1>
+<h1 class="float-start">Editing: <%= @user.firstName %> <%= @user.lastName %></h1>
+<%= link_to "Back to users", '/account', class:"btn btn-outline-dark float-end mt-2" %>
+<hr class="clear">
 
 <%= render "form", user: @user %>
 
 <br>
-
-<div>
-  <%= link_to "Back to users", '/account' %>
-</div>

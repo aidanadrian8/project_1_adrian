@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :account
   resources :ticket
   resources :attendees
+  resources :my_calendar
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :event_schedule

@@ -65,6 +65,6 @@ class DogShowsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dog_show_params
-      params.require(:dog_show).permit(:name, :start_time, :end_time, :location, :number_of_seats)
+      params.require(:dog_show).permit(:name, :start_time, :end_time, :location, :number_of_seats, :price, :about)
     end
 end

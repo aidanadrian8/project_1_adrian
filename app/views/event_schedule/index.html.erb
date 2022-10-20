@@ -1,9 +1,10 @@
-
+<h1>Monthly Schedule</h1>
+<hr>
 <%= month_calendar(partial: 'simple_calendar/month_calendar', events: @dog_shows) do |date, dog_shows| %>
   <%= date.day %>
   <% dog_shows.each do |dog_show| %>
     <div>
-      <%= link_to "#{dog_show.name.truncate(10)}", "/dog_shows/#{dog_show.id}" %>
+      <%= link_to "#{dog_show.name.truncate(10)}", "/dog_shows/#{dog_show.id}", class: "calendar-link" %>
     </div>
   <% end %>
 <% end %>

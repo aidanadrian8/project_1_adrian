@@ -1,4 +1,4 @@
-<%= form_with(model: user) do |form| %>
+<%= form_with(model: user, class:"form-floating") do |form| %>
   <% if user.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -13,20 +13,30 @@
 
   <div>
     <%= form.label :firstName, style: "display: block" %>
-    <%= form.text_field :lastName %>
+    <%= form.text_field :firstName, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label :lastName, style: "display: block" %>
-    <%= form.text_field :lastName %>
+    <%= form.text_field :lastName, class: "form-control"  %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, :cols => "10", :rows => "10", class: "form-control"  %>
   </div>
+  <% if current_user.role == "event_organizer" %>
+    <div class="field">
+      <%= form.label :role, "Attendee"%>
+      <%= form.radio_button :role, "attendee", :value => "attendee", checked:(user.role == "attendee") %>
+      <%= form.label :role, "Trainer" %>
+      <%= form.radio_button :role, "Trainer", :value => "trainer", checked:(user.role == "trainer")  %>
+      <%= form.label :role, "Event Organizer", :value => "event_organizer" %>
+      <%= form.radio_button :role, "event_organizer", checked:(user.role == "event_organizer")  %>
+    </div>
+  <% end %>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit 'Update', class: "btn btn-outline-success mt-2" %>
   </div>
 <% end %>
