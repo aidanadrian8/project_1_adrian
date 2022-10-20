@@ -1,10 +1,9 @@
-<h1>Editing dog show</h1>
+<h1 class="float-start">Edit: <%= @dog_show.name %></h1>
+<%= link_to "Back to dog shows", dog_shows_path, class:"btn btn-outline-dark float-end mt-2" %>
+<hr class="clear">
 
 <%= render "form", dog_show: @dog_show %>
 
 <br>
 
-<div>
-  <%= link_to "Show this dog show", @dog_show %> |
-  <%= link_to "Back to Event Schedule", '/event_schedule' %>
-</div>
+
