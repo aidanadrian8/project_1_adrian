@@ -8,7 +8,7 @@
 <div>
   <% if current_user && current_user.role == "event_organizer" %>
   <%= link_to "Edit", edit_dog_show_path(@dog_show), class:"btn btn-outline-primary float-start" %>
-  <%= button_to "Destroy this dog show", @dog_show, method: :delete, class:"btn btn-outline-danger float-end" %>
+  <%= button_to "Destroy this dog show", @dog_show, method: :delete, data: {turbo: false}, class:"btn btn-outline-danger float-end" %>
   <% end %>
   <br>
   <br>

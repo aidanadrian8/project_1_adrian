@@ -18,7 +18,7 @@
 <div class="mb-2">
   <% if current_user && current_user.role == "event_organizer" %>
   <%= link_to "Edit this User", edit_account_path(@user), class:"btn btn-outline-primary float-start pb-2"  %>
-  <%= button_to "Destroy this User", @account, method: :delete, class:"btn btn-outline-danger float-end pb-2"  %>
+  <%= button_to "Destroy this User", @account, method: :delete,data: {turbo: false}, class:"btn btn-outline-danger float-end pb-2"  %>
   <% end %>
   <br>
 
